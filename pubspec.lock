@@ -49,14 +49,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
-  barcode_scan2:
-    dependency: "direct main"
-    description:
-      name: barcode_scan2
-      sha256: "847ff88888213a3b2866d98839ee6d85e4da8002df83e7971d355d24d5f31c4c"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.3.0"
   bloc:
     dependency: transitive
     description:
@@ -358,14 +350,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
-  flutter_pro_barcode_scanner:
-    dependency: "direct main"
-    description:
-      name: flutter_pro_barcode_scanner
-      sha256: d084a909d7f65dcffe0f0b490032f8f1670d111e88f71f0cdc0b0a418c3bcf35
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -608,14 +592,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.4.4"
-  native_barcode_scanner:
-    dependency: "direct main"
-    description:
-      name: native_barcode_scanner
-      sha256: "7a94a12ad2fc92a0bcede6eee42f40a1362598fde0075675e23dfe5e0fa48a8b"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.8"
   nested:
     dependency: transitive
     description:
@@ -784,14 +760,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.5.1"
-  protobuf:
-    dependency: transitive
-    description:
-      name: protobuf
-      sha256: "68645b24e0716782e58948f8467fd42a880f255096a821f9e7d0ec625b00c84d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.1.0"
   provider:
     dependency: transitive
     description:
@@ -816,14 +784,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.3"
-  qr_code_scanner:
-    dependency: transitive
-    description:
-      name: qr_code_scanner
-      sha256: f23b68d893505a424f0bd2e324ebea71ed88465d572d26bb8d2e78a4749591fd
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.1"
   recase:
     dependency: transitive
     description:
