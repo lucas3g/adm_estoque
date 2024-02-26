@@ -128,7 +128,7 @@ class _ConfigPageState extends State<ConfigPage> {
                     title: 'IP do Servidor',
                     hint: 'Digite o IP do servidor',
                     borderColor: context.colorScheme.onBackground,
-                    keyboardType: TextInputType.number,
+                    keyboardType: const TextInputType.numberWithOptions(),
                   ),
                 ),
                 const SpacerWidth(),
