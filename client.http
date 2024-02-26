@@ -1,0 +1,9 @@
+@baseUrl=https://192.168.0.212:9000/login
+POST "{{baseUrl}}
+headers:
+        {
+    "cnpj": "97305890000181",
+    "usuario": "ADM",
+    "senha": "EL"
+}
+Content-Type: application/json

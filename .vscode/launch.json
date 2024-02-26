@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "name": "[dev] adm_estoque",
+          "request": "launch",
+          "type": "dart",
+          "toolArgs": [
+              "--dart-define-from-file",
+              "dev.env",
+          ]
+      },
+      {
+          "name": "[prod] adm_estoque",
+          "request": "launch",
+          "type": "dart",
+          "args": [
+              "--release"
+          ],
+          "toolArgs": [
+              "--dart-define-from-file",
+              "prod.env",
+          ]
+      },
+  ]
+}
