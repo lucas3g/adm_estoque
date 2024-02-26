@@ -7,6 +7,8 @@ import 'package:adm_estoque/app/core/domain/entities/app_mode.dart';
 import 'package:adm_estoque/app/modules/auth/data/datasources/auth_datasource.dart';
 import 'package:adm_estoque/app/modules/auth/domain/repositories/auth_repository.dart';
 import 'package:adm_estoque/app/modules/auth/domain/usecases/login_with_cnpj_and_name_and_password.dart';
+import 'package:adm_estoque/app/modules/auth/domain/usecases/logout.dart';
+import 'package:adm_estoque/app/modules/auth/domain/usecases/verify_license.dart';
 import 'package:adm_estoque/app/modules/device/data/datasources/device_info_datasource.dart';
 import 'package:adm_estoque/app/modules/device/domain/repositories/device_info_repository.dart';
 import 'package:adm_estoque/app/modules/device/domain/usecases/get_device_info_usecase.dart';
@@ -29,6 +31,8 @@ import 'package:shared_preferences/shared_preferences.dart';
   AuthDatasource,
   AuthRepository,
   LoginWithCnpjAndNameAndPasswordUsecase,
+  LogoutUsecase,
+  VerifyLicenseUseCase,
 
   // [DEVICE]
   DeviceInfoDataSource,

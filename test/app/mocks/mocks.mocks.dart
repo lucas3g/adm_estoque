@@ -15,7 +15,7 @@ import 'package:adm_estoque/app/core/domain/entities/either_of.dart' as _i12;
 import 'package:adm_estoque/app/core/domain/entities/failure.dart' as _i23;
 import 'package:adm_estoque/app/core/domain/entities/response_entity.dart'
     as _i7;
-import 'package:adm_estoque/app/core/domain/entities/usecase.dart' as _i29;
+import 'package:adm_estoque/app/core/domain/entities/usecase.dart' as _i26;
 import 'package:adm_estoque/app/core/domain/vos/int_vo.dart' as _i10;
 import 'package:adm_estoque/app/core/domain/vos/text_vo.dart' as _i9;
 import 'package:adm_estoque/app/modules/auth/data/datasources/auth_datasource.dart'
@@ -24,14 +24,18 @@ import 'package:adm_estoque/app/modules/auth/domain/repositories/auth_repository
     as _i22;
 import 'package:adm_estoque/app/modules/auth/domain/usecases/login_with_cnpj_and_name_and_password.dart'
     as _i24;
-import 'package:adm_estoque/app/modules/device/data/datasources/device_info_datasource.dart'
+import 'package:adm_estoque/app/modules/auth/domain/usecases/logout.dart'
     as _i25;
-import 'package:adm_estoque/app/modules/device/domain/entities/app_device.dart'
-    as _i26;
-import 'package:adm_estoque/app/modules/device/domain/repositories/device_info_repository.dart'
+import 'package:adm_estoque/app/modules/auth/domain/usecases/verify_license.dart'
     as _i27;
-import 'package:adm_estoque/app/modules/device/domain/usecases/get_device_info_usecase.dart'
+import 'package:adm_estoque/app/modules/device/data/datasources/device_info_datasource.dart'
     as _i28;
+import 'package:adm_estoque/app/modules/device/domain/entities/app_device.dart'
+    as _i29;
+import 'package:adm_estoque/app/modules/device/domain/repositories/device_info_repository.dart'
+    as _i30;
+import 'package:adm_estoque/app/modules/device/domain/usecases/get_device_info_usecase.dart'
+    as _i31;
 import 'package:adm_estoque/app/modules/user/data/datasources/local/user_local_datasource.dart'
     as _i20;
 import 'package:adm_estoque/app/modules/user/domain/entities/user_entity.dart'
@@ -1500,89 +1504,146 @@ class MockLoginWithCnpjAndNameAndPasswordUsecase extends _i1.Mock
       ) as _i14.Future<_i12.EitherOf<_i23.AppFailure, _i11.UserEntity>>);
 }
 
-/// A class which mocks [DeviceInfoDataSource].
+/// A class which mocks [LogoutUsecase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockDeviceInfoDataSource extends _i1.Mock
-    implements _i25.DeviceInfoDataSource {
-  MockDeviceInfoDataSource() {
+class MockLogoutUsecase extends _i1.Mock implements _i25.LogoutUsecase {
+  MockLogoutUsecase() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i14.Future<_i12.EitherOf<_i23.AppFailure, _i26.AppDeviceEntity>>
-      getDeviceInfo() => (super.noSuchMethod(
-            Invocation.method(
-              #getDeviceInfo,
-              [],
-            ),
-            returnValue: _i14.Future<
-                    _i12.EitherOf<_i23.AppFailure, _i26.AppDeviceEntity>>.value(
-                _FakeEitherOf_10<_i23.AppFailure, _i26.AppDeviceEntity>(
-              this,
-              Invocation.method(
-                #getDeviceInfo,
-                [],
-              ),
-            )),
-          ) as _i14
-              .Future<_i12.EitherOf<_i23.AppFailure, _i26.AppDeviceEntity>>);
-}
-
-/// A class which mocks [DeviceInfoRepository].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockDeviceInfoRepository extends _i1.Mock
-    implements _i27.DeviceInfoRepository {
-  MockDeviceInfoRepository() {
-    _i1.throwOnMissingStub(this);
-  }
-
-  @override
-  _i14.Future<_i12.EitherOf<_i23.AppFailure, _i26.AppDeviceEntity>>
-      getDeviceInfo() => (super.noSuchMethod(
-            Invocation.method(
-              #getDeviceInfo,
-              [],
-            ),
-            returnValue: _i14.Future<
-                    _i12.EitherOf<_i23.AppFailure, _i26.AppDeviceEntity>>.value(
-                _FakeEitherOf_10<_i23.AppFailure, _i26.AppDeviceEntity>(
-              this,
-              Invocation.method(
-                #getDeviceInfo,
-                [],
-              ),
-            )),
-          ) as _i14
-              .Future<_i12.EitherOf<_i23.AppFailure, _i26.AppDeviceEntity>>);
-}
-
-/// A class which mocks [GetDeviceInfoUseCase].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockGetDeviceInfoUseCase extends _i1.Mock
-    implements _i28.GetDeviceInfoUseCase {
-  MockGetDeviceInfoUseCase() {
-    _i1.throwOnMissingStub(this);
-  }
-
-  @override
-  _i14.Future<_i12.EitherOf<_i23.AppFailure, _i26.AppDeviceEntity>> call(
-          _i29.NoArgs? args) =>
+  _i14.Future<_i12.EitherOf<_i23.AppFailure, _i12.VoidSuccess>> call(
+          _i26.NoArgs? args) =>
       (super.noSuchMethod(
         Invocation.method(
           #call,
           [args],
         ),
-        returnValue: _i14
-            .Future<_i12.EitherOf<_i23.AppFailure, _i26.AppDeviceEntity>>.value(
-            _FakeEitherOf_10<_i23.AppFailure, _i26.AppDeviceEntity>(
+        returnValue:
+            _i14.Future<_i12.EitherOf<_i23.AppFailure, _i12.VoidSuccess>>.value(
+                _FakeEitherOf_10<_i23.AppFailure, _i12.VoidSuccess>(
           this,
           Invocation.method(
             #call,
             [args],
           ),
         )),
-      ) as _i14.Future<_i12.EitherOf<_i23.AppFailure, _i26.AppDeviceEntity>>);
+      ) as _i14.Future<_i12.EitherOf<_i23.AppFailure, _i12.VoidSuccess>>);
+}
+
+/// A class which mocks [VerifyLicenseUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockVerifyLicenseUseCase extends _i1.Mock
+    implements _i27.VerifyLicenseUseCase {
+  MockVerifyLicenseUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i14.Future<_i12.EitherOf<_i23.AppFailure, _i12.VoidSuccess>> call(
+          _i27.VerifyLicenseUseCaseArgs? args) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [args],
+        ),
+        returnValue:
+            _i14.Future<_i12.EitherOf<_i23.AppFailure, _i12.VoidSuccess>>.value(
+                _FakeEitherOf_10<_i23.AppFailure, _i12.VoidSuccess>(
+          this,
+          Invocation.method(
+            #call,
+            [args],
+          ),
+        )),
+      ) as _i14.Future<_i12.EitherOf<_i23.AppFailure, _i12.VoidSuccess>>);
+}
+
+/// A class which mocks [DeviceInfoDataSource].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockDeviceInfoDataSource extends _i1.Mock
+    implements _i28.DeviceInfoDataSource {
+  MockDeviceInfoDataSource() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i14.Future<_i12.EitherOf<_i23.AppFailure, _i29.AppDeviceEntity>>
+      getDeviceInfo() => (super.noSuchMethod(
+            Invocation.method(
+              #getDeviceInfo,
+              [],
+            ),
+            returnValue: _i14.Future<
+                    _i12.EitherOf<_i23.AppFailure, _i29.AppDeviceEntity>>.value(
+                _FakeEitherOf_10<_i23.AppFailure, _i29.AppDeviceEntity>(
+              this,
+              Invocation.method(
+                #getDeviceInfo,
+                [],
+              ),
+            )),
+          ) as _i14
+              .Future<_i12.EitherOf<_i23.AppFailure, _i29.AppDeviceEntity>>);
+}
+
+/// A class which mocks [DeviceInfoRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockDeviceInfoRepository extends _i1.Mock
+    implements _i30.DeviceInfoRepository {
+  MockDeviceInfoRepository() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i14.Future<_i12.EitherOf<_i23.AppFailure, _i29.AppDeviceEntity>>
+      getDeviceInfo() => (super.noSuchMethod(
+            Invocation.method(
+              #getDeviceInfo,
+              [],
+            ),
+            returnValue: _i14.Future<
+                    _i12.EitherOf<_i23.AppFailure, _i29.AppDeviceEntity>>.value(
+                _FakeEitherOf_10<_i23.AppFailure, _i29.AppDeviceEntity>(
+              this,
+              Invocation.method(
+                #getDeviceInfo,
+                [],
+              ),
+            )),
+          ) as _i14
+              .Future<_i12.EitherOf<_i23.AppFailure, _i29.AppDeviceEntity>>);
+}
+
+/// A class which mocks [GetDeviceInfoUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetDeviceInfoUseCase extends _i1.Mock
+    implements _i31.GetDeviceInfoUseCase {
+  MockGetDeviceInfoUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i14.Future<_i12.EitherOf<_i23.AppFailure, _i29.AppDeviceEntity>> call(
+          _i26.NoArgs? args) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [args],
+        ),
+        returnValue: _i14
+            .Future<_i12.EitherOf<_i23.AppFailure, _i29.AppDeviceEntity>>.value(
+            _FakeEitherOf_10<_i23.AppFailure, _i29.AppDeviceEntity>(
+          this,
+          Invocation.method(
+            #call,
+            [args],
+          ),
+        )),
+      ) as _i14.Future<_i12.EitherOf<_i23.AppFailure, _i29.AppDeviceEntity>>);
 }
