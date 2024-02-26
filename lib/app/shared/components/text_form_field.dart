@@ -21,6 +21,7 @@ class AppTextFormField extends StatefulWidget {
   FocusNode? focusNode;
   Function(String)? onFieldSubmitted;
   TextInputAction? textInputAction;
+  bool readOnly;
 
   AppTextFormField({
     Key? key,
@@ -39,6 +40,7 @@ class AppTextFormField extends StatefulWidget {
     this.focusNode,
     this.onFieldSubmitted,
     this.textInputAction,
+    this.readOnly = false,
   }) : super(key: key);
 
   @override
@@ -57,6 +59,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      readOnly: widget.readOnly,
       focusNode: widget.focusNode,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       keyboardType: widget.keyboardType,

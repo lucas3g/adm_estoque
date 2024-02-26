@@ -6,6 +6,7 @@ import 'package:adm_estoque/app/di/dependency_injection.dart';
 import 'package:adm_estoque/app/modules/stock/domain/entities/product.dart';
 import 'package:adm_estoque/app/modules/stock/presenter/components/card_product_widget.dart';
 import 'package:adm_estoque/app/modules/stock/presenter/components/ccusto_dropdown_widget.dart';
+import 'package:adm_estoque/app/modules/stock/presenter/components/modal_keyboard_widget.dart';
 import 'package:adm_estoque/app/modules/stock/presenter/components/modal_products_by_name_widget.dart';
 import 'package:adm_estoque/app/modules/stock/presenter/controllers/product/product_bloc.dart';
 import 'package:adm_estoque/app/modules/stock/presenter/controllers/product/product_events.dart';
@@ -356,6 +357,7 @@ class _StockPageState extends State<StockPage> {
                       keyboardType: const TextInputType.numberWithOptions(
                         decimal: true,
                       ),
+                      textInputAction: TextInputAction.none,
                       onChanged: (String value) {
                         setState(() {
                           typedQuantity = value.trim().isNotEmpty;
@@ -366,6 +368,20 @@ class _StockPageState extends State<StockPage> {
                           return 'Informe a quantidade.';
                         }
                         return null;
+                      },
+                      onTap: () async {
+                        await showModalBottomSheet(
+                          barrierColor: Colors.transparent,
+                          context: context,
+                          builder: (_) => ModalKeyboardWidget(
+                            controller: quantityController,
+                          ),
+                        );
+
+                        setState(() {
+                          typedQuantity =
+                              quantityController.text.trim().isNotEmpty;
+                        });
                       },
                     ),
                     const SizedBox(height: 8),
