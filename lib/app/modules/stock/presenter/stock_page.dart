@@ -353,7 +353,7 @@ class _StockPageState extends State<StockPage> {
                       title: 'Quantidade',
                       hint: 'Digite a quantidade',
                       borderColor: context.colorScheme.onBackground,
-                      keyboardType: TextInputType.number,
+                      keyboardType: const TextInputType.numberWithOptions(),
                       onChanged: (String value) {
                         setState(() {
                           typedQuantity = value.trim().isNotEmpty;
