@@ -128,7 +128,10 @@ class _ConfigPageState extends State<ConfigPage> {
                     title: 'IP do Servidor',
                     hint: 'Digite o IP do servidor',
                     borderColor: context.colorScheme.onBackground,
-                    keyboardType: const TextInputType.numberWithOptions(),
+                    keyboardType: const TextInputType.numberWithOptions(
+                      decimal: true,
+                    ),
+                    textInputAction: TextInputAction.done,
                   ),
                 ),
                 const SpacerWidth(),
@@ -138,7 +141,10 @@ class _ConfigPageState extends State<ConfigPage> {
                     title: 'Porta',
                     hint: 'Porta',
                     borderColor: context.colorScheme.onBackground,
-                    keyboardType: TextInputType.number,
+                    keyboardType: const TextInputType.numberWithOptions(
+                      decimal: true,
+                    ),
+                    textInputAction: TextInputAction.done,
                   ),
                 ),
               ],

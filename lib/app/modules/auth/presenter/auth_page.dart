@@ -224,8 +224,9 @@ class _AuthPageState extends State<AuthPage> {
                             onChanged: _user.setCnpj,
                             validator: (String? v) =>
                                 _user.cnpj.validate('CNPJ').exceptionOrNull(),
-                            keyboardType:
-                                const TextInputType.numberWithOptions(),
+                            keyboardType: const TextInputType.numberWithOptions(
+                              decimal: true,
+                            ),
                             inputFormatters: <TextInputFormatter>[
                               FilteringTextInputFormatter.digitsOnly,
                               CnpjInputFormatter(),
