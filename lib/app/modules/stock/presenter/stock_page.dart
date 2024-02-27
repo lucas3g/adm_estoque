@@ -6,7 +6,6 @@ import 'package:adm_estoque/app/di/dependency_injection.dart';
 import 'package:adm_estoque/app/modules/stock/domain/entities/product.dart';
 import 'package:adm_estoque/app/modules/stock/presenter/components/card_product_widget.dart';
 import 'package:adm_estoque/app/modules/stock/presenter/components/ccusto_dropdown_widget.dart';
-import 'package:adm_estoque/app/modules/stock/presenter/components/modal_keyboard_widget.dart';
 import 'package:adm_estoque/app/modules/stock/presenter/components/modal_products_by_name_widget.dart';
 import 'package:adm_estoque/app/modules/stock/presenter/controllers/product/product_bloc.dart';
 import 'package:adm_estoque/app/modules/stock/presenter/controllers/product/product_events.dart';
@@ -14,6 +13,7 @@ import 'package:adm_estoque/app/modules/stock/presenter/controllers/product/prod
 import 'package:adm_estoque/app/shared/components/app_snackbar.dart';
 import 'package:adm_estoque/app/shared/components/custom_app_bar.dart';
 import 'package:adm_estoque/app/shared/components/custom_button.dart';
+import 'package:adm_estoque/app/shared/components/modal_keyboard_widget.dart';
 import 'package:adm_estoque/app/shared/components/spacer_height_widget.dart';
 import 'package:adm_estoque/app/shared/components/spacer_width.dart';
 import 'package:adm_estoque/app/shared/components/text_form_field.dart';

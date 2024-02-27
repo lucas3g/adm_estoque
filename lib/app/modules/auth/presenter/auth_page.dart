@@ -39,6 +39,8 @@ class _AuthPageState extends State<AuthPage> {
   final FocusNode fUser = FocusNode();
   final FocusNode fPassword = FocusNode();
 
+  final TextEditingController cnpjController = TextEditingController();
+
   late StreamSubscription<AuthStates> _sub;
 
   final UserEntity _user = UserAdapter.empty();
@@ -217,6 +219,7 @@ class _AuthPageState extends State<AuthPage> {
                           ),
                           const SpacerHeight(),
                           AppTextFormField(
+                            readOnly: true,
                             focusNode: fCnpj,
                             title: 'CNPJ',
                             hint: 'Digite seu CNPJ',

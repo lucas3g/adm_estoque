@@ -1,4 +1,5 @@
 import 'package:adm_estoque/app/shared/extensions/build_context_extension.dart';
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 
 class ModalKeyboardWidget extends StatefulWidget {
@@ -15,10 +16,25 @@ class ModalKeyboardWidget extends StatefulWidget {
 
 class _ModalKeyboardWidgetState extends State<ModalKeyboardWidget> {
   @override
+  void initState() {
+    super.initState();
+
+    widget.controller.addListener(() {
+      widget.controller.text = CNPJValidator.format(widget.controller.text);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       height: context.screenHeight * .32,
-      color: context.colorScheme.secondaryContainer,
+      decoration: BoxDecoration(
+        color: context.colorScheme.secondaryContainer,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+      ),
       child: GridView.count(
           padding: const EdgeInsets.all(10),
           crossAxisSpacing: 5,
@@ -73,10 +89,12 @@ class _ModalKeyboardWidgetState extends State<ModalKeyboardWidget> {
             ),
             ElevatedButton(
               onPressed: () {
-                widget.controller.text = widget.controller.text.substring(
-                  0,
-                  widget.controller.text.length - 1,
-                );
+                if (widget.controller.text.isNotEmpty) {
+                  widget.controller.text = widget.controller.text.substring(
+                    0,
+                    widget.controller.text.length - 1,
+                  );
+                }
               },
               child: const Icon(Icons.backspace_outlined),
               style: ElevatedButton.styleFrom(
@@ -137,6 +155,8 @@ class _ModalKeyboardWidgetState extends State<ModalKeyboardWidget> {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pop();
+
+                FocusScope.of(context).unfocus();
               },
               child: const Text('OK'),
               style: ElevatedButton.styleFrom(
