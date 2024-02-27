@@ -219,7 +219,6 @@ class _AuthPageState extends State<AuthPage> {
                           ),
                           const SpacerHeight(),
                           AppTextFormField(
-                            readOnly: true,
                             focusNode: fCnpj,
                             title: 'CNPJ',
                             hint: 'Digite seu CNPJ',

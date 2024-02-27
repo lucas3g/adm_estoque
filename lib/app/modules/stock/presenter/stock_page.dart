@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:adm_estoque/app/core/domain/entities/app_assets.dart';
 import 'package:adm_estoque/app/core/domain/entities/app_global.dart';
@@ -173,6 +174,8 @@ class _StockPageState extends State<StockPage> {
     if (!_gkForm.currentState!.validate() && typedQuantity) {
       return;
     }
+
+    FocusScope.of(context).unfocus();
 
     final ProductEntity product =
         (_productBloc.state as ProductSuccessState).product;
@@ -349,15 +352,14 @@ class _StockPageState extends State<StockPage> {
                     const Divider(),
                     const SizedBox(height: 8),
                     AppTextFormField(
+                      readOnly: Platform.isIOS,
                       focusNode: fQtd,
                       controller: quantityController,
                       title: 'Quantidade',
                       hint: 'Digite a quantidade',
                       borderColor: context.colorScheme.onBackground,
-                      keyboardType: const TextInputType.numberWithOptions(
-                        decimal: true,
-                      ),
-                      textInputAction: TextInputAction.none,
+                      keyboardType: TextInputType.number,
+                      textInputAction: TextInputAction.done,
                       onChanged: (String value) {
                         setState(() {
                           typedQuantity = value.trim().isNotEmpty;
@@ -370,18 +372,23 @@ class _StockPageState extends State<StockPage> {
                         return null;
                       },
                       onTap: () async {
-                        await showModalBottomSheet(
-                          barrierColor: Colors.transparent,
-                          context: context,
-                          builder: (_) => ModalKeyboardWidget(
-                            controller: quantityController,
-                          ),
-                        );
+                        if (Platform.isIOS) {
+                          fQtd.unfocus();
 
-                        setState(() {
-                          typedQuantity =
-                              quantityController.text.trim().isNotEmpty;
-                        });
+                          await showModalBottomSheet(
+                            context: context,
+                            barrierColor: Colors.transparent,
+                            isDismissible: false,
+                            builder: (_) => ModalKeyboardWidget(
+                              controller: quantityController,
+                            ),
+                          );
+
+                          setState(() {
+                            typedQuantity =
+                                quantityController.text.trim().isNotEmpty;
+                          });
+                        }
                       },
                     ),
                     const SizedBox(height: 8),
