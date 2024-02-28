@@ -48,7 +48,7 @@ Future<void> configureDependencies() async {
 
   if (user != null && hasIpServer && hasDevice) {
     await _verifyDependenciesRegistered();
-    _registerDependeciesOnline();
+    _registerDependenciesOnline();
 
     await _readOpenCamera();
     await _verifyLicense();
@@ -193,7 +193,7 @@ Future<void> _verifyDependenciesRegistered() async {
   }
 }
 
-void _registerDependeciesOnline() {
+void _registerDependenciesOnline() {
   getIt.registerFactory<CCustoDataSource>(
     () => CCustoDataSourceImpl(
       clientHttp: getIt(),
@@ -207,7 +207,7 @@ void _registerDependeciesOnline() {
   );
 }
 
-void _registerDependeciesLocal() {
+void _registerDependenciesLocal() {
   getIt.registerFactory<CCustoDataSource>(
     () => CCustoDataSourceLocalImpl(
       localDatabase: getIt(),
@@ -233,11 +233,11 @@ Future<void> _initModeListener() async {
 
         _persistFakeUser();
 
-        _registerDependeciesLocal();
+        _registerDependenciesLocal();
 
         break;
       default:
-        _registerDependeciesOnline();
+        _registerDependenciesOnline();
         break;
     }
   });
